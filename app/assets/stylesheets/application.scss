@@ -15,3 +15,63 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.vixiv-black {
+	color: #757c80;
+}
+.top-box {
+	width: 400px;
+	height: 450px;
+	margin: 0 auto;
+}
+.top-box-content {
+	width: 300px;
+	margin: 0 auto;
+}
+.top-button {
+	height: 40px;
+	margin: 0 auto;
+	margin-bottom: 8px;
+	line-height: 25px;
+	font-weight: bold;
+	font-size: 17px;
+}
+.top-link {
+	height: 40px;
+	margin-left: 190px;
+	line-height: 40px;
+	text-decoration: underline;
+}
+.devise-title {
+	margin-bottom: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+.devise-box {
+	text-align: center;
+}
+.input-mysize {
+	width: 300px;
+	height: 40px;
+	font-size: 17px;
+}
+.remember-mysize {
+	width: 300px;
+	height: 40px;
+	font-size: 17px;
+	padding-top: 10px;
+}
+.devise-button {
+	margin: 8px 0;
+	font-weight: bold;
+	font-size: 17px;
+}
+.devise-link {
+	width: 300px;
+	height: 40px;
+	text-align: right;
+	text-decoration: underline;
+	font-size: 14px;
+}
