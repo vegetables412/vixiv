@@ -1,0 +1,37 @@
+<div class="container-fluid">
+<div class="row">
+	<div class="vixiv-background">
+		<div class="contact-box">
+			<div class="contact-title vixiv-black">お問い合わせ</div>
+			<div class="contact-box-content">
+				<%= form_for(@contact) do |f| %>
+					<div class="field">
+						<%= f.label :name, "お名前", class: "contact-subheading vixiv-black" %><br />
+						<%= f.text_field :name, autofocus: true, autocomplete: "name", class: "contact-mysize" %>
+					</div>
+					<div class="field">
+						<%= f.label :email, "メールアドレス", class: "contact-subheading vixiv-black" %><br />
+						<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "contact-mysize" %>
+					</div>
+					<div class="field">
+						<%= f.label :type, "お問い合わせの種類", class: "contact-subheading vixiv-black" %><br />
+						<%= f.select :type, Contact.types_i18n.invert, :prompt => "選択してください" %>
+					</div>
+					<div class="field">
+						<%= f.label :title, "件名", class: "contact-subheading vixiv-black" %><br />
+						<%= f.text_field :title, autofocus: true, autocomplete: "title", class: "contact-mysize" %>
+					</div>
+					<div class="field">
+						<%= f.label :body, "内容", class: "contact-subheading vixiv-black" %><br />
+						<%= f.text_area :body, :size => "1x6", autofocus: true, autocomplete: "title", class: "contact-body-mysize" %>
+					</div>
+					<div class="actions">
+						<%= f.submit "送信", class: "btn btn-primary btn-block contact-button" %>
+					</div>
+				<% end %>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
