@@ -20,6 +20,9 @@
 .vixiv-black {
 	color: #757c80;
 }
+.vixiv-background {
+	background-color: #e4e7ee;
+}
 .top-box {
 	width: 400px;
 	height: 450px;
@@ -63,8 +66,26 @@
 	font-size: 17px;
 	padding-top: 10px;
 }
+.contact-mysize {
+	width: 600px;
+	height: 36px;
+	font-size: 17px;
+	border-radius: 2px;
+	border: solid 1px #757c80;
+}
+.contact-body-mysize {
+	width: 600px;
+	font-size: 17px;
+	border-radius: 2px;
+	border: solid 1px #757c80;
+}
 .devise-button {
 	margin: 8px 0;
+	font-weight: bold;
+	font-size: 17px;
+}
+.contact-button {
+	margin-top: 10px;
 	font-weight: bold;
 	font-size: 17px;
 }
@@ -74,4 +95,28 @@
 	text-align: right;
 	text-decoration: underline;
 	font-size: 14px;
+}
+.contact-box {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #ffffff;
+}
+.contact-box-content {
+	width: 600px;
+	margin: 0 auto;
+}
+.contact-title {
+	height: 30px;
+	margin-left: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.contact-subheading {
+	width: 600px;
+	margin-top: 10px;
+	font-size: 15px;
+}
+.home-box {
+	width: 1000px;
+	margin: 0 auto;
 }

@@ -1,4 +1,17 @@
 ja:
+  enums:
+    contact:
+      type:
+        request: ご意見・ご要望等
+        forget: ID/パスワードがわからない
+        login: ログインについて
+        browsing: 作品の閲覧について
+        production: 作品の投稿/編集について
+        search: 作品の検索について
+        nice: 作品のいいね！について
+        trouble: 迷惑行為やユーザー間のトラブルについて
+        violation: 利用規約に反する投稿作品について
+        other: その他
   devise:
     confirmations:
       confirmed: "アカウントが確認されました。ログインしています。"
