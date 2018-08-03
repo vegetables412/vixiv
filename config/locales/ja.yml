@@ -12,6 +12,11 @@ ja:
         trouble: 迷惑行為やユーザー間のトラブルについて
         violation: 利用規約に反する投稿作品について
         other: その他
+    post:
+      restriction:
+        age: 全年齢
+        erotic: R-18
+        glo: R-18G
   devise:
     confirmations:
       confirmed: "アカウントが確認されました。ログインしています。"

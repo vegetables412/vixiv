@@ -1,0 +1,6 @@
+<div class="nested-fields">
+	<div class="field post-tag-box">
+		<%= f.collection_select(:vtuber_id, Vtuber.all, :id, :name, :prompt => "選択してください") %>
+		<%= link_to_remove_association "削除", f, class: "post-tag-delete" %>
+	</div>
+</div>

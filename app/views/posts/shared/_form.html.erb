@@ -1,0 +1,49 @@
+<%= form_for @post do |f| %>
+
+<div class="field">
+	<%= f.hidden_field :user_id, :value => @user %>
+</div>
+
+<div class="field">
+	<%= f.attachment_field :image, class: "post-image-mysize" %>
+</div>
+
+<div class="field">
+	<%= f.text_field :post_title, autofocus: true, autocomplete: "post_title", :placeholder => "  タイトル", class: "post-mysize" %>
+</div>
+
+<div class="field">
+	<%= f.text_area :post_body, :size => "1x5", autofocus: true, autocomplete: "post_body", :placeholder => "  キャプション", class: "post-body-mysize" %>
+</div>
+
+<div class="field">
+	<%= f.label :vtuber_id, "タグ", class: "vixiv-black post-tag-title" %>
+</div>
+
+<div id="tags">
+	<%= f.fields_for :tags do |tag| %>
+		<%= render "posts/shared/tag_fields", { f: tag, tags: @tags  }%>
+	<% end %>
+</div>
+<div id="links">
+	<%= link_to_add_association '追加',f, :tags, partial: "posts/shared/tag_fields", render_options: {locals:{ tags: @tags }}, class: "post-tag-add" %>
+</div>
+
+<div class="field">
+	<%= f.label :restriction, "閲覧制限", class: "vixiv-black post-restriction-title" %>
+	<label class="post-radio-button vixiv-black">
+		<%= f.radio_button :restriction, :age, {:checked => true} %> 全年齢
+	</label>
+	<label class="post-radio-button vixiv-black">
+		<%= f.radio_button :restriction, :erotic, {} %> R-18
+	</label>
+	<label class="post-radio-button vixiv-black">
+		<%= f.radio_button :restriction, :glo, {} %> R-18G
+	</label>
+</div>
+
+<div class="actions post-button-area">
+	<%= f.submit "投稿", class: "btn btn-primary post-button" %>
+</div>
+
+<% end %>

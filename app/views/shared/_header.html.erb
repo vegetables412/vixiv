@@ -1,0 +1,29 @@
+<header>
+	<div class="header-top">
+		<div class="header-top-content">
+			<div class="header-logo"></div>
+		</div>
+	</div>
+	<div class="header-bottom">
+		<div class="header-bottom-content">
+			<div class="header-link">
+				<%= link_to(home_path, class: "") do %>
+				<span class="glyphicon glyphicon-home header-icon"></span>
+				<span class="header-text">ホーム</span>
+				<% end %>
+				<%= link_to(new_post_path, class: "") do %>
+				<span class="glyphicon glyphicon-upload header-icon"></span>
+				<span class="header-text">作品投稿</span>
+				<% end %>
+				<%= link_to(user_path(current_user.id), class: "") do %>
+				<span class="glyphicon glyphicon-user header-icon"></span>
+				<span class="header-text">マイページ</span>
+				<% end %>
+				<%= link_to(destroy_user_session_path, :method => :delete) do %>
+				<span class="glyphicon glyphicon-log-out header-icon"></span>
+				<span class="header-text">ログアウト</span>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</header>

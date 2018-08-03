@@ -24,6 +24,7 @@ get '/home' => "posts#home"
 get '/admin_password_edit/:id' => "admins#admin_password_edit", as:'admin_password_edit'
 get '/user_password_edit/:id' => "users#user_password_edit", as:'user_password_edit'
 get '/vtuber_password_edit/:id' => "vtubers#vtuber_password_edit", as:'vtuber_password_edit'
+get '/user_posts_index/:id' => "users#user_posts_index", as:'user_posts_index'
 
 
 resources :posts do

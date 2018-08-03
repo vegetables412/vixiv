@@ -1,9 +1,42 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="vixiv-background">
+
+<%= render 'shared/header' %>
+
+<div class="container-fluid all-height vixiv-background">
+	<div class="row footer-position">
 			<div class="home-box">
-				
+				<!-- < %= link_to " ログアウト", destroy_vtuber_session_path, method: :delete, class: "glyphicon glyphicon-log-out header-top-a link-type-basic" %> -->
+				<div class="home-leftbar">
+					<div class="home-myicon-box">
+						<%= link_to(user_path(@user), class: "") do %>
+						<%= attachment_image_tag @user, :profile_image, :fill, 40,40, class: "home-myicon", fallback: "no_image.jpg" %>
+						<% end %>
+						<%= link_to(user_path(@user), class: "") do %>
+						<div class="home-myname"><%= @user.name %></div>
+						<% end %>
+					</div>
+					<div class="home-leftbar-underline"></div>
+					<%= link_to(following_user_path(@user), class: "") do %>
+					<div class="home-follow-box">
+						<div class="home-follow-title vixiv-black2">フォロー　　</div>
+						<div class="home-follow-count"><%= @user.following.count %></div>
+					</div>
+					<% end %>
+					<%= link_to(followers_user_path(@user), class: "") do %>
+					<div class="home-follow-box">
+						<div class="home-follow-title vixiv-black2">フォロワー　　</div>
+						<div class="home-follow-count"><%= @user.followers.count %></div>
+					</div>
+					<% end %>
+				</div>
+				<div class="home-centerbar">
+					<div class="home-centerbar-title">おすすめ作品</div>
+					<div class="home-centerbar-title">新着作品</div>
+				</div>
+				<div class="home-rightbar">
+					<div class="home-rightbar-title">ランキング</div>
+				</div>
 			</div>
-		</div>
 	</div>
 </div>
+
+<%= render 'shared/footer' %>

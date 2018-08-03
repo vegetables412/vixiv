@@ -17,31 +17,25 @@
 			</div>
 			<div class="profile-box">
 				<div class="tab">
-					<div class="tab-content">トップ</div>
+					<%= link_to(user_path(@user), class: "") do %>
+					<div class="tab-content2">トップ</div>
+					<% end %>
 					<%= link_to(user_posts_index_path(@user), class: "") do %>
 					<div class="tab-content2">作品</div>
 					<% end %>
 					<%= link_to(following_user_path(@user), class: "") do %>
 					<div class="tab-content2">フォロー</div>
 					<% end %>
-					<%= link_to(followers_user_path(@user), class: "") do %>
-					<div class="tab-content2">フォロワー</div>
-					<% end %>
+					<div class="tab-content">フォロワー</div>
 				</div>
-				<div class="profile-content">
-					<div class="profile-content-title">プロフィール</div>
-					<table class="table table-bordered">
-						<tbody>
-							<tr>
-								<td class="col-lg-3">ニックネーム</td>
-								<td class="col-lg-9"><%= @user.name %></td>
-							</tr>
-							<tr>
-								<td class="col-lg-3">自己紹介</td>
-								<td class="col-lg-9"><%= simple_format(@user.introduction) %></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="follow-title">フォロワー</div>
+				<div class="follow-count"><%= @user.followers.count %></div>
+				<div class="follow-content">
+					<% @user.followers.each do |user| %>
+						<%= attachment_image_tag user, :profile_image, :fill, 75,75, class: "user-icon", fallback: "no_image.jpg" %>
+						<%= user.name %>
+						<%= link_to '詳細', user_path(user) %>
+					<% end %>
 				</div>
 			</div>
 		</div>
