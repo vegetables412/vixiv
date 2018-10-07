@@ -41,7 +41,7 @@
 					<span class="glyphicon glyphicon-log-out header-icon"></span>
 					<span class="header-text">ログアウト</span>
 					<% end %>
-				<% else %>
+				<% elsif  admin_signed_in? %>
 					<%= link_to(home_path, class: "") do %>
 					<span class="glyphicon glyphicon-home header-icon"></span>
 					<span class="header-text">ホーム</span>
@@ -53,6 +53,19 @@
 					<%= link_to(destroy_vtuber_session_path, :method => :delete) do %>
 					<span class="glyphicon glyphicon-log-out header-icon"></span>
 					<span class="header-text">ログアウト</span>
+					<% end %>
+				<% else %>
+					<%= link_to(root_path, class: "") do %>
+					<span class="glyphicon glyphicon-king header-icon"></span>
+					<span class="header-text">トップ</span>
+					<% end %>
+					<%= link_to(new_user_registration_path, class: "") do %>
+					<span class="glyphicon glyphicon-plus header-icon"></span>
+					<span class="header-text">新規登録</span>
+					<% end %>
+					<%= link_to(new_user_session_path, class: "") do %>
+					<span class="glyphicon glyphicon glyphicon-log-in header-icon"></span>
+					<span class="header-text">ログイン</span>
 					<% end %>
 				<% end %>
 			</div>
