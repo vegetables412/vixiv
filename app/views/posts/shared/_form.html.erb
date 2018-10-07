@@ -5,7 +5,7 @@
 </div>
 
 <div class="field">
-	<%= f.label :vtuber_id, "画像", class: "vixiv-black post-image-title" %>
+	<%= f.label :image, "画像", class: "vixiv-black post-image-title" %>
 </div>
 
 <div class="field">
@@ -13,8 +13,10 @@
 </div>
 
 <div class="field">
-	<%= f.text_field :post_title, autofocus: true, autocomplete: "post_title", :placeholder => "タイトル", class: "post-mysize" %>
+	<%= f.text_field :post_title, autofocus: true, autocomplete: "post_title", :placeholder => "タイトル（最大25文字）", class: "post-mysize" %>
 </div>
+
+<%if flash[:notice] %><p class="post-new-error"><%= flash[:notice] %></p><% end %>
 
 <div class="field">
 	<%= f.text_area :post_body, :size => "1x5", autofocus: true, autocomplete: "post_body", :placeholder => "キャプション", class: "post-body-mysize" %>

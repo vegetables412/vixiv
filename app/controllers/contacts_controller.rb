@@ -5,7 +5,18 @@ def index
 end
 
 def show
-	@contact = Contact.find(params[:id])
+	if Admin.exists?(id: params[:id])
+		if user_signed_in?
+			redirect_to home_path, notice: "無効なURLです。"
+		elsif admin_signed_in?
+			@contact = Contact.find(params[:id])
+		elsif vtuber_signed_in?
+		else
+			redirect_to new_user_session_path
+		end
+	else
+		redirect_to home_path, notice: "無効なURLです。"
+	end
 end
 
 def new

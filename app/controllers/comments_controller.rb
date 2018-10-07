@@ -9,13 +9,17 @@ def create
 end
 
 def destroy
-	post = Post.find(params[:post_id])
-    comment = current_user.comments.find_by(post_id: params[:post_id])
-    comment.destroy
-    redirect_to post_path(post)
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
+    @posts = @post.user.posts.all.order(id: "DESC").limit(9)
+    @comments = Comment.find(params[:comment_id])
+    # post = Post.find(params[:post_id])
+    # comment = current_user.comments.find_by(post_id: params[:post_id])
+    # comment.destroy
+    @comments.destroy
+    redirect_to post_path(@post)
 end
 
-private
 def comment_params
   params.require(:comment).permit(:user_id,
                       :post_id,

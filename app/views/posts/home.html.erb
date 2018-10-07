@@ -1,9 +1,12 @@
 
 <%= render 'shared/header' %>
 
+<% if  user_signed_in? %>
+
 <div class="container-fluid all-height vixiv-background">
 	<div class="row footer-position">
 			<div class="home-box">
+			<%if flash[:notice] %><p class="home-error"><%= flash[:notice] %></p><% end %>
 				<div class="home-leftbar">
 					<div class="home-myicon-box">
 						<%= link_to(user_path(@user), class: "") do %>
@@ -80,6 +83,8 @@
 					<div class="home-rightbar-title">おすすめユーザー</div>
 					<div class="home-rightbar-content">
 						<% @users.each do |user| %>
+						<% if current_user.following?(user) %>
+						<% else %>
 							<%= link_to(user_path(user), class: "") do %>
 								<div class="home-rightbar-icon-box">
 									<%= attachment_image_tag user, :profile_image, :fill, 50,50, class: "home-rightbar-icon", fallback: "no_image.jpg" %>
@@ -87,10 +92,15 @@
 								</div>
 							<% end %>
 						<% end %>
+						<% end %>
 					</div>
 				</div>
 			</div>
 	</div>
 </div>
+
+<% elsif  vtuber_signed_in? %>
+<% else %>
+<% end %>
 
 <%= render 'shared/footer' %>

@@ -10,6 +10,8 @@ attachment :image
 
 enum restriction: { age: 0, erotic: 1, glo: 2 }
 
+validates :post_title, presence: true, length: { minimum: 1, maximum: 25 }
+
 def favorited_by?(user)
 	favorites.where(user_id: user.id).exists?
 end

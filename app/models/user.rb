@@ -7,16 +7,17 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :active_relationships,class_name:  "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :active_relationships,class_name:  "Relationship", foreign_key: "following_id", dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: :follower_id, dependent: :destroy
+  # has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id, dependent: :destroy
   has_many :following, through: :active_relationships, source: :following
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :following_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
   attachment :profile_image
 
   validates :name, presence: true, length: { minimum: 1, maximum: 7 }
+  validates :email, presence: true
 
 # ユーザーをフォローする
 def follow(other_user)

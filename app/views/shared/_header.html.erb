@@ -7,21 +7,53 @@
 	<div class="header-bottom">
 		<div class="header-bottom-content">
 			<div class="header-link">
-				<%= link_to(home_path, class: "") do %>
-				<span class="glyphicon glyphicon-home header-icon"></span>
-				<span class="header-text">ホーム</span>
-				<% end %>
-				<%= link_to(new_post_path, class: "") do %>
-				<span class="glyphicon glyphicon-upload header-icon"></span>
-				<span class="header-text">作品投稿</span>
-				<% end %>
-				<%= link_to(user_path(current_user.id), class: "") do %>
-				<span class="glyphicon glyphicon-user header-icon"></span>
-				<span class="header-text">マイページ</span>
-				<% end %>
-				<%= link_to(destroy_user_session_path, :method => :delete) do %>
-				<span class="glyphicon glyphicon-log-out header-icon"></span>
-				<span class="header-text">ログアウト</span>
+				<% if  user_signed_in? %>
+					<%= link_to(home_path, class: "") do %>
+					<span class="glyphicon glyphicon-home header-icon"></span>
+					<span class="header-text">ホーム</span>
+					<% end %>
+					<%= link_to(new_post_path, class: "") do %>
+					<span class="glyphicon glyphicon-upload header-icon"></span>
+					<span class="header-text">作品投稿</span>
+					<% end %>
+					<%= link_to(user_path(current_user.id), class: "") do %>
+					<span class="glyphicon glyphicon-user header-icon"></span>
+					<span class="header-text">マイページ</span>
+					<% end %>
+					<%= link_to(destroy_user_session_path, :method => :delete) do %>
+					<span class="glyphicon glyphicon-log-out header-icon"></span>
+					<span class="header-text">ログアウト</span>
+					<% end %>
+				<% elsif  vtuber_signed_in? %>
+					<%= link_to(home_path, class: "") do %>
+					<span class="glyphicon glyphicon-home header-icon"></span>
+					<span class="header-text">ホーム</span>
+					<% end %>
+					<!-- < %= link_to(new_post_path, class: "") do %> -->
+					<!-- <span class="glyphicon glyphicon-upload header-icon"></span> -->
+					<!-- <span class="header-text">作品投稿</span> -->
+					<!-- < % end %> -->
+					<!-- < %= link_to(vtuber_path(current_vtuber.id), class: "") do %> -->
+					<!-- <span class="glyphicon glyphicon-user header-icon"></span> -->
+					<!-- <span class="header-text">マイページ</span> -->
+					<!-- < % end %> -->
+					<%= link_to(destroy_vtuber_session_path, :method => :delete) do %>
+					<span class="glyphicon glyphicon-log-out header-icon"></span>
+					<span class="header-text">ログアウト</span>
+					<% end %>
+				<% else %>
+					<%= link_to(home_path, class: "") do %>
+					<span class="glyphicon glyphicon-home header-icon"></span>
+					<span class="header-text">ホーム</span>
+					<% end %>
+					<!-- < %= link_to(admin_path(current_admin.id), class: "") do %> -->
+					<!-- <span class="glyphicon glyphicon-user header-icon"></span> -->
+					<!-- <span class="header-text">マイページ</span> -->
+					<!-- < % end %> -->
+					<%= link_to(destroy_vtuber_session_path, :method => :delete) do %>
+					<span class="glyphicon glyphicon-log-out header-icon"></span>
+					<span class="header-text">ログアウト</span>
+					<% end %>
 				<% end %>
 			</div>
 		</div>

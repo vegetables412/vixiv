@@ -1,25 +1,41 @@
 class UsersController < ApplicationController
 
 def index
+	if user_signed_in?
+		redirect_to home_path, notice: "無効なURLです。"
+	elsif vtuber_signed_in?
+		redirect_to home_path, notice: "無効なURLです。"
+	elsif admin_signed_in?
+	else
+		redirect_to new_user_session_path
+	end
 end
 
 def show
 	if User.exists?(id: params[:id])
 		if user_signed_in?
 			@user = User.find(params[:id])
+		elsif vtuber_signed_in?
+		elsif admin_signed_in?
 		else
 			redirect_to new_user_session_path
 		end
 	else
-		redirect_to home_path
+		redirect_to home_path, notice: "無効なURLです。"
 	end
 end
 
 def edit
 	if User.exists?(id: params[:id])
-		@user = User.find(params[:id])
+		if user_signed_in?
+			@user = User.find(params[:id])
+		elsif vtuber_signed_in?
+		elsif admin_signed_in?
+		else
+			redirect_to new_user_session_path
+		end
 	else
-		redirect_to home_path
+		redirect_to home_path, notice: "無効なURLです。"
 	end
 end
 
@@ -37,31 +53,63 @@ end
 
 def user_password_edit
 	if User.exists?(id: params[:id])
-		@user = User.find(params[:id])
+		if user_signed_in?
+			@user = User.find(params[:id])
+		elsif vtuber_signed_in?
+		elsif admin_signed_in?
+		else
+			redirect_to new_user_session_path
+		end
 	else
-		redirect_to home_path
+		redirect_to home_path, notice: "無効なURLです。"
 	end
 end
 
 def user_posts_index
 	if User.exists?(id: params[:id])
-		@user = User.find(params[:id])
-		@posts = @user.posts.all.order(id: "DESC")
+		if user_signed_in?
+			@user = User.find(params[:id])
+			@posts = @user.posts.all.order(id: "DESC")
+		elsif vtuber_signed_in?
+		elsif admin_signed_in?
+		else
+			redirect_to new_user_session_path
+		end
 	else
-		redirect_to home_path
+		redirect_to home_path, notice: "無効なURLです。"
 	end
 end
 
 def following
-	@user  = User.find(params[:id])
-	@users = @user.following
-	render 'users/follow/show_follow'
+	if User.exists?(id: params[:id])
+		if user_signed_in?
+			@user  = User.find(params[:id])
+			@users = @user.following
+			render 'users/follow/show_follow'
+		elsif vtuber_signed_in?
+		elsif admin_signed_in?
+		else
+			redirect_to new_user_session_path
+		end
+	else
+		redirect_to home_path, notice: "無効なURLです。"
+	end
 end
 
 def followers
-	@user  = User.find(params[:id])
-	@users = @user.followers
-	render 'users/follow/show_follower'
+	if User.exists?(id: params[:id])
+		if user_signed_in?
+			@user  = User.find(params[:id])
+			@users = @user.followers
+			render 'users/follow/show_follower'
+		elsif vtuber_signed_in?
+		elsif admin_signed_in?
+		else
+			redirect_to new_user_session_path
+		end
+	else
+		redirect_to home_path, notice: "無効なURLです。"
+	end
 end
 
 private

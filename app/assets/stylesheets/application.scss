@@ -55,6 +55,21 @@ a:hover {
 	min-height: 60%;
 }
 
+/*---------- エラーメッセージ ----------*/
+
+.home-error {
+	margin: 10px 0px 15px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ff0033;
+}
+.post-new-error {
+	margin: 10px 0px 10px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ff0033;
+}
+
 /*---------- header ----------*/
 
 .header-top {
@@ -253,7 +268,7 @@ a:hover {
 	border: solid 1px #757c80;
 }
 .post-image-mysize {
-	height: 50px;
+	margin-bottom: 25px;
 	font-size: 17px;
 }
 .post-body-mysize {
@@ -442,10 +457,12 @@ a:hover {
 }
 .home-follow-title {
 	font-size: 12px;
+	font-weight: bold;
 	display: inline;
 }
 .home-follow-count {
 	font-size: 12px;
+	font-weight: bold;
 	display: inline;
 }
 
@@ -581,10 +598,22 @@ a:hover {
 }
 .follow-button {
 	width: 175px;
+	margin-bottom: 10px;
 	background-color: #fff;
 	border-radius: 5px;
-	border: 1px solid #e4e7ee;
 	text-align: center;
+}
+.following-button {
+	color: #258fb8;
+	font-weight: bold;
+	border: 2px solid #258fb8;
+}
+.unfollow-button {
+	font-weight: bold;
+	border: 2px solid #5bc0de;
+}
+.following-button:hover {
+	color: #258fb8;
 }
 .user-button {
 	width: 175px;
@@ -702,9 +731,24 @@ a:hover {
 	display: inline-block;
 }
 .follow-content {
-	width: 785px;
-	margin-top: 30px;
-	padding: 20px 30px 0;
+	width: 815px;
+	padding: 0px 30px 0px 37px;
+}
+.follow-icon-box {
+	width: 75px;
+	margin: 0px 15px 10px 0px;
+	text-align: center;
+	display: inline-block;
+}
+.follow-icon {
+	width: 75px;
+	height: 75px;
+	margin-bottom: 2px;
+	border-radius: 50%;
+}
+.follow-text {
+	font-weight: bold;
+	color: #333333;
 }
 .user-icon {
 	width: 75px;

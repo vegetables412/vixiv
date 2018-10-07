@@ -32,9 +32,12 @@
 				<div class="follow-count"><%= @user.following.count %></div>
 				<div class="follow-content">
 					<% @user.following.each do |user| %>
-						<%= attachment_image_tag user, :profile_image, :fill, 75,75, class: "user-icon", fallback: "no_image.jpg" %>
-						<%= user.name %>
-						<%= link_to '詳細', user_path(user) %>
+						<%= link_to(user_path(user), class: "") do %>
+							<div class="follow-icon-box">
+								<%= attachment_image_tag user, :profile_image, :fill, 75,75, class: "follow-icon", fallback: "no_image.jpg" %>
+								<div class="follow-text"><%= user.name.truncate(5) %></div>
+							</div>
+						<% end %>
 					<% end %>
 				</div>
 			</div>

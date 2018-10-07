@@ -72,8 +72,8 @@
 						 		<div class="post-show-main-bar-comments-box">
 						 			<div class="post-show-main-bar-comments-name"><%= comment.user.name %></div>
 						 			<div class="post-show-main-bar-comments-text vixiv-black2"><%= comment.comment %></div>
-						 			<p class="post-show-main-bar-comments-created"><%= @post.created_at.strftime("%Y/%m/%d") %></p>
-						 			<!-- <p class="post-show-main-bar-comments-created"><%= @post.created_at.strftime("%Y/%m/%d") %> | <%= link_to "削除", post_comments_path(@post), method: :delete, class: "" %></p> -->
+						 			<!-- <p class="post-show-main-bar-comments-created"><%= @post.created_at.strftime("%Y/%m/%d") %></p> -->
+						 			<p class="post-show-main-bar-comments-created"><%= @post.created_at.strftime("%Y/%m/%d") %> | <%= link_to "削除", post_comments_path(comment_id: comment, post_id: @post), method: :delete, class: "" %></p>
 						 		</div>
 						 	</div>
 						 <% end %>
