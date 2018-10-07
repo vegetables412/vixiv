@@ -30,15 +30,19 @@
 				</div>
 				<div class="user-posts-title"><%= @user.name %>の作品一覧</div>
 				<div class="user-posts-count"><%= @user.posts.count %>件</div>
-				<div class="user-posts-content">
-					<% @posts.each do |post| %>
+			<div class="user-post-box">
+				<% @posts.each do |post| %>
+					<div class="user-posts-content">
 						<%= link_to (post_path(post)) do %>
-							<%= attachment_image_tag post, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
+							<%= attachment_image_tag post, :image, size: '150x150', class: "user-post-image", fallback: "no_image.jpg" %>
 						<% end %>
-						<%= post.post_title %>
-						<%= link_to '詳細', post_path(post) %>
-					<% end %>
-				</div>
+						<div class="user-post-title">
+							<b><%= post.post_title.truncate(10) %></b>
+						</div>
+						<%= link_to '詳細', post_path(post), class: "user-post-link" %>
+					</div>
+				<% end %>
+			</div>
 			</div>
 		</div>
 	</div>

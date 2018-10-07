@@ -4,11 +4,23 @@ def index
 end
 
 def show
-	@user = User.find(params[:id])
+	if User.exists?(id: params[:id])
+		if user_signed_in?
+			@user = User.find(params[:id])
+		else
+			redirect_to new_user_session_path
+		end
+	else
+		redirect_to home_path
+	end
 end
 
 def edit
-	@user = User.find(params[:id])
+	if User.exists?(id: params[:id])
+		@user = User.find(params[:id])
+	else
+		redirect_to home_path
+	end
 end
 
 def update
@@ -16,7 +28,7 @@ def update
 	if @user.update(user_params)
 		redirect_to user_path(@user.id)
 	else
-		render :edit
+		redirect_to user_path(@user.id)
 	end
 end
 
@@ -24,12 +36,20 @@ def destroy
 end
 
 def user_password_edit
-	@user = User.find(params[:id])
+	if User.exists?(id: params[:id])
+		@user = User.find(params[:id])
+	else
+		redirect_to home_path
+	end
 end
 
 def user_posts_index
-	@user = User.find(params[:id])
-	@posts = @user.posts.all
+	if User.exists?(id: params[:id])
+		@user = User.find(params[:id])
+		@posts = @user.posts.all.order(id: "DESC")
+	else
+		redirect_to home_path
+	end
 end
 
 def following

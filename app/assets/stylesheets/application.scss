@@ -16,27 +16,47 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*---------- サイトの最低の高さ設定 ----------*/
+
 html, body {
 	height: 100%
 }
+
+/*---------- リンクにカーソルを乗せた時に色が変更されないように ----------*/
+
 a:hover {
 	text-decoration: none;
 }
+
+/*--------- vixivで使用する黒色 ----------*/
+
 .vixiv-black {
 	color: #757c80;
 }
 .vixiv-black2 {
 	color: #666;
 }
+
+/*---------- vixivで使用する背景色 ----------*/
+
 .vixiv-background {
 	background-color: #e4e7ee;
 }
 .vixiv-background2 {
 	background-color: #f4f2f4;
 }
+.vixiv-background3 {
+	background-color: #f5f5f5;
+}
+
+/*---------- サイトの最低の高さ設定 ----------*/
+
 .all-height {
 	min-height: 60%;
 }
+
+/*---------- header ----------*/
+
 .header-top {
 	height : 70px;
 	padding-top: 10px;
@@ -70,6 +90,9 @@ a:hover {
 	font-size: 17px;
 	color: #258fb8;
 }
+
+/*---------- footer ----------*/
+
 .footer-box {
 	width: 1000px;
 	height: 170px;
@@ -113,6 +136,9 @@ a:hover {
 .copyright {
 	margin-left: 10px;
 }
+
+/*---------- topページ ----------*/
+
 .top-background {
 	height: 100%;
 	padding-top: 20vh;
@@ -194,6 +220,7 @@ a:hover {
 .input-mysize {
 	width: 300px;
 	height: 40px;
+	padding-left: 14px;
 	font-size: 17px;
 }
 .remember-mysize {
@@ -205,12 +232,14 @@ a:hover {
 .contact-mysize {
 	width: 600px;
 	height: 36px;
+	padding-left: 14px;
 	font-size: 17px;
 	border-radius: 2px;
 	border: solid 1px #757c80;
 }
 .contact-body-mysize {
 	width: 600px;
+	padding: 10px 14px;
 	font-size: 17px;
 	border-radius: 2px;
 	border: solid 1px #757c80;
@@ -218,6 +247,7 @@ a:hover {
 .post-mysize {
 	width: 750px;
 	height: 50px;
+	padding-left: 14px;
 	font-size: 17px;
 	border-radius: 4px;
 	border: solid 1px #757c80;
@@ -228,6 +258,7 @@ a:hover {
 }
 .post-body-mysize {
 	width: 750px;
+	padding: 10px 14px;
 	font-size: 17px;
 	border-radius: 4px;
 	border: solid 1px #757c80;
@@ -254,6 +285,9 @@ a:hover {
 	text-decoration: underline;
 	font-size: 14px;
 }
+
+/*---------- お問い合わせページ ----------*/
+
 .contact-box {
 	width: 1000px;
 	margin: 0 auto;
@@ -268,20 +302,34 @@ a:hover {
 .contact-title {
 	height: 30px;
 	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-top: 10px;
 	font-size: 20px;
 	font-weight: bold;
 }
 .contact-subheading {
 	width: 600px;
-	margin-top: 10px;
-	font-size: 15px;
+	margin-top: 15px;
+	margin-left: 10px;
+	font-size: 16px;
 }
+
+/*---------- 作品投稿ページ ----------*/
+
 .post-box {
 	width: 750px;
 	margin: 0 auto;
 }
 .post-tag-box {
 	height: 40px;
+}
+.post-image-title {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.post-image-mysize {
+	line-height: normal;
 }
 .post-tag-title {
 	font-size: 20px;
@@ -307,10 +355,55 @@ a:hover {
 	margin-top: 20px;
 	text-align: center;
 }
+
+/*---------- ユーザー情報編集ページ ----------*/
+
+.user-edit-box {
+	width: 750px;
+	margin: 0 auto;
+}
+.user-edit-title {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.user-pass-edit-title {
+	font-size: 20px;
+	margin: 10px 0px 10px 5px;
+}
+.user-pass-edit-title2 {
+	font-size: 20px;
+	margin: 15px 0px 10px 5px;
+}
+.user-edit-introduction-title {
+	font-size: 20px;
+	margin: 15px 0px 10px;
+}
+.user-edit-body-mysize {
+	width: 750px;
+	padding: 10px 14px;
+	font-size: 17px;
+	border-radius: 4px;
+	border: solid 1px #757c80;
+}
+.user-pass-edit-button-area {
+	margin-top: 30px;
+	text-align: center;
+}
+.user-pass-edit-button {
+    width: 275px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/*---------- homeページ ----------*/
+
 .home-box {
 	width: 1000px;
 	margin: 0 auto;
 }
+
+/*----- homeページの左側 -----*/
+
 .home-leftbar {
 	width: 175px;
 	margin-right: 10px;
@@ -332,10 +425,11 @@ a:hover {
 .home-myicon {
 	width: 40px;
 	height: 40px;
+	margin-right: 5px;
 	border-radius: 50%;
 }
 .home-myname {
-	font-size: 12px;
+	font-size: 14px;
     font-weight: bold;
     color: #333333;
     display: inline-block;
@@ -343,7 +437,7 @@ a:hover {
 .home-follow-box {
 	width: 155px;
 	height: 32px;
-	margin-left: 20px;
+	margin: 0px 0px 5px 20px;
 	line-height: 32px;
 }
 .home-follow-title {
@@ -354,6 +448,20 @@ a:hover {
 	font-size: 12px;
 	display: inline;
 }
+
+.home-leftbar-title {
+	margin: 5px 0px 5px 10px;
+	font-weight: bold;
+}
+
+.home-leftbar-posts {
+	margin: 0px 0px 10px 6px;
+	object-fit: contain;
+	border: thin solid #e4e7ee;
+}
+
+/*----- homeページの中央 -----*/
+
 .home-centerbar {
 	width: 550px;
 	background-color: #fff;
@@ -371,6 +479,45 @@ a:hover {
     line-height: 30px;
 	background-color: #f2f4f6;
 }
+.home-new-posts-box {
+	width: 525px;
+	height: 625px;
+	margin: 10px auto;
+}
+.home-new-post-content {
+	padding: 5px 0px 5px 0px;
+	width: 175px;
+	float: left;
+}
+.home-new-post-content2 {
+	padding-bottom: 5px;
+	width: 175px;
+	background-color: #757c80;
+	float: left;
+}
+.home-new-post-image {
+	margin: 0px 12px 0px 12px;
+	object-fit: contain;
+	border: thin solid #e4e7ee;
+}
+.home-new-post-title {
+	width: 150px;
+	margin: 5px auto;
+	text-align:center;
+}
+.home-new-post-title-link {
+	color: #333333;
+}
+.home-new-post-link {
+	width: 150px;
+	margin: 0 auto;
+	text-align:center;
+	color: #757c80;
+	display: block;
+}
+
+/*----- homeページの右側 -----*/
+
 .home-rightbar {
 	width: 225px;
 	margin-left: 10px;
@@ -389,10 +536,25 @@ a:hover {
 	line-height: 25px;
 	background-color: #f2f4f6;
 }
+.home-rightbar-icon {
+	width: 50px;
+	height: 50px;
+	margin: 10px 10px 10px 20px;
+	border-radius: 50%;
+}
+.home-rightbar-name {
+	color: #333333;
+}
+
+/*---------- マイページ ----------*/
+
 .user-box {
 	width: 1000px;
 	margin: 0 auto;
 }
+
+/*----- マイページの左側 -----*/
+
 .profile-leftbar {
 	float: left;
 }
@@ -408,8 +570,8 @@ a:hover {
 .user-myicon {
 	width: 80px;
 	height: 80px;
+	margin: 15px 0px 10px;
 	border-radius: 50%;
-	margin-top: 15px;
 }
 .user-myname {
 	margin: 0 5px;
@@ -434,6 +596,9 @@ a:hover {
 	text-align: right;
 	text-decoration: underline;
 }
+
+/*----- トップの右側(プロフィール) -----*/
+
 .profile-box {
 	width: 815px;
 	background-color: #fff;
@@ -473,6 +638,9 @@ a:hover {
     font-weight: bold;
     background: #f2f4f6;
 }
+
+/*----- 作品の右側(自分の投稿一覧) -----*/
+
 .user-posts-title {
 	margin: 10px 0 10px 18px;
 	font-size: 20px;
@@ -489,20 +657,33 @@ a:hover {
 	vertical-align: middle;
 	display: inline-block;
 }
+.user-post-box {
+	width: 815px;
+	padding: 10px;
+	display: inline-block;
+}
+.user-posts-content {
+	width: 198px;
+	float: left;
+}
+.user-post-image {
+	margin: 10px 24px 0px 24px;
+	object-fit: contain;
+	border: thin solid #e4e7ee;
+}
+.user-post-title {
+	margin: 5px 24px;
+	text-align:center;
+	display: block;
+}
+.user-post-link {
+	width: 150px;
+	margin: 0 auto;
+	text-align:center;
+	display: block;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*----- フォローおよびフォロワーの右側 -----*/
 
 .follow-title {
 	margin: 10px 0 10px 18px;
@@ -529,4 +710,211 @@ a:hover {
 	width: 75px;
 	height: 75px;
 	border-radius: 50%;
+}
+
+/*---------- 投稿の詳細ページ ----------*/
+
+.post-show-box {
+	width: 1230px;
+	margin: 0 auto;
+}
+
+/*----- 投稿の詳細ページのメインバー -----*/
+
+.post-show-main-bar {
+	width: 900px;
+	margin-top: 15px;
+	float: left;
+}
+.post-show-main-bar-image-box {
+	width: 900px;
+	height: 600px;
+	background-color: #f4f2f4;
+}
+.post-show-main-bar-image {
+	object-fit: contain;
+}
+
+.post-show-main-bar-favorites {
+	width: 900px;
+	height: 50px;
+	padding-right: 15px;
+	background-color: #fff;
+}
+
+.post-show-main-bar-favorites-position {
+	text-align: right;
+}
+
+.favorites-icon {
+	font-size: 30px;
+	color: #e0245e;
+	line-height: 50px;
+}
+
+.favorites-icon2 {
+	font-size: 30px;
+	color: #757c80;
+	line-height: 50px;
+}
+
+.favorites-text {
+	font-size: 25px;
+	color: #757c80;
+	line-height: 50px;
+}
+
+.post-show-main-bar-content {
+	width: 900px;
+	padding: 40px 150px 30px;
+	background-color: #fff;
+}
+
+.post-show-title {
+	margin-bottom: 8px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.post-show-body {
+	margin: 0px 0px 25px 5px;
+	font-size: 16px;
+}
+
+.post-show-tags {
+	margin-left: 5px;
+	color: #3d7699;
+	display: inline;
+}
+
+.post-show-created {
+	margin-left: 8px;
+	color: #b0b3ba;
+}
+
+.post-show-main-bar-border {
+	border-bottom: 1px solid #f5f5f5;
+}
+
+.post-show-main-bar-content2 {
+	width: 900px;
+	padding: 30px 150px 40px;
+	background-color: #fff;
+}
+
+.post-show-main-bar-comment-title-box {
+	background-color: #fff;
+	padding-bottom: 10px;
+}
+
+.post-show-main-bar-comment-title {
+	font-size:14px;
+	font-weight: bold;
+}
+
+.post-show-main-bar-comment-form {
+	height: 60px;
+	background-color: #fff;
+
+}
+
+.post-show-main-bar-comment-image {
+	border-radius: 50%;
+	float: left;
+	margin-right: 8px;
+}
+
+.comment-form {
+	width: 445px;
+	height: 30px;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+}
+
+.comment-button {
+	margin-left: 8px;
+	padding: 6px 16px;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 100vw;
+	background-color: #0096fa;
+	float: left;
+}
+
+.post-show-main-bar-comments-image-box {
+	float: left;
+}
+
+.post-show-main-bar-comments-image {
+	border-radius: 50%;
+	margin-right: 8px;
+}
+
+.post-show-main-bar-comments-box {
+	display: inline-block;
+}
+
+.post-show-main-bar-comments-name {
+	font-size:14px;
+	font-weight: bold;
+}
+
+.post-show-main-bar-comments-text {
+	width: 550px;
+}
+
+.post-show-main-bar-comments-created {
+	color: #b0b3ba;
+}
+
+/*----- 投稿の詳細ページのサイドバー -----*/
+
+.post-show-side-bar {
+	width: 300px;
+	margin: 15px 0px 0px 30px;
+	float: left;
+
+}
+
+.post-show-side-bar-content {
+	height: 40px;
+	margin-bottom: 10px
+}
+
+.post-show-side-bar-image {
+	border-radius: 50%;
+	float: left;
+	margin-right: 8px;
+}
+
+.post-show-side-bar-name {
+	padding-top: 10px;
+	font-weight: bold;
+	color: #333333;
+}
+
+.post-show-side-bar-title {
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #333333;
+}
+
+.post-show-side-bar-posts {
+	margin: 0px 10px 10px 0px;
+	object-fit: contain;
+	border: thin solid #e4e7ee;
+	float: left;
+	background-color: #fff;
+}
+
+.post-show-side-bar-button-box {
+	width: 225px;
+	margin-top: 10px;
+}
+
+.post-show-side-bar-button-box2 {
+	width: 225px;
+	margin-top: 15px;
 }

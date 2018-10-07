@@ -1,0 +1,115 @@
+
+<%= render 'shared/header' %>
+
+<div class="container-fluid all-height vixiv-background3">
+	<div class="row footer-position">
+		<div class="post-show-box">
+			<div class="post-show-main-bar">
+				<div class="post-show-main-bar-image-box">
+					<%= attachment_image_tag @post, :image, size: '900x600', class: "post-show-main-bar-image", fallback: "no_image.jpg" %>
+				</div>
+
+				<% if @post.user_id == current_user.id %>
+					<div class="post-show-main-bar-favorites">
+						<% if @post.favorites.count == 0 %>
+							<div class="post-show-main-bar-favorites-position">
+								<span class="glyphicon glyphicon-heart-empty favorites-icon2"></span>
+								<span class="favorites-text"><%= @post.favorites.count %> いいね！</span>
+							</div>
+						<% else %>
+							<div class="post-show-main-bar-favorites-position">
+								<span class="glyphicon glyphicon-heart favorites-icon"></span>
+								<span class="favorites-text"><%= @post.favorites.count %> いいね！</span>
+							</div>
+						<% end %>
+					</div>
+				<% else %>
+					<div class="post-show-main-bar-favorites">
+						<% if @post.favorited_by?(current_user) %>
+							<div class="post-show-main-bar-favorites-position">
+    							<%= link_to post_favorites_path(@post), method: :delete do %>
+    								<span class="glyphicon glyphicon-heart favorites-icon"></span>
+    								<span class="favorites-text"><%= @post.favorites.count %> いいね！</span>
+    							<% end %>
+							</div>
+						<% else %>
+							<div class="post-show-main-bar-favorites-position">
+    							<%= link_to post_favorites_path(@post), method: :post do %>
+    								<span class="glyphicon glyphicon-heart-empty favorites-icon2"></span>
+    								<span class="favorites-text"><%= @post.favorites.count %> いいね！</span>
+    							<% end %>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+
+				<div class="post-show-main-bar-content">
+					<p class="post-show-title"><%= @post.post_title %></p>
+					<div class="post-show-body vixiv-black2"><%= simple_format(@post.post_body) %></div>
+					<% @post.tags.each do |tag| %>
+						<p class="post-show-tags">#<%= tag.vtuber.name %></p>
+					<% end %>
+					<p class="post-show-created"><%= @post.created_at.strftime("%Y/%m/%d") %></p>
+				</div>
+				<div class="post-show-main-bar-border"></div>
+				<div class="post-show-main-bar-content2">
+					<div class="post-show-main-bar-comment-title-box">
+						<div class="post-show-main-bar-comment-title">コメント</div>
+					</div>
+					<div class="post-show-main-bar-comment-form">
+						<%= attachment_image_tag current_user, :profile_image, size: '32x32', class: "post-show-main-bar-comment-image", fallback: "no_image.jpg" %>
+						<%= form_for [@post, @comment] do |f| %>
+							<%= f.text_field :comment, class: "comment-form",placeholder: "コメントする..." %>
+							<%= f.submit "送信", class: "btn btn-lg comment-button" %>
+						<% end %>
+					</div>
+					<div class="post-show-main-bar-comments">
+						 <% @post.comments.order(id: "DESC").each do |comment| %>
+						 	<div class="">
+						 		<div class="post-show-main-bar-comments-image-box">
+						 			<%= attachment_image_tag comment.user, :profile_image, size: '40x40', class: "post-show-main-bar-comments-image", fallback: "no_image.jpg" %>
+						 		</div>
+						 		<div class="post-show-main-bar-comments-box">
+						 			<div class="post-show-main-bar-comments-name"><%= comment.user.name %></div>
+						 			<div class="post-show-main-bar-comments-text vixiv-black2"><%= comment.comment %></div>
+						 			<p class="post-show-main-bar-comments-created"><%= @post.created_at.strftime("%Y/%m/%d") %></p>
+						 			<!-- <p class="post-show-main-bar-comments-created"><%= @post.created_at.strftime("%Y/%m/%d") %> | <%= link_to "削除", post_comments_path(@post), method: :delete, class: "" %></p> -->
+						 		</div>
+						 	</div>
+						 <% end %>
+					</div>
+				</div>
+			</div>
+			<div class="post-show-side-bar">
+				<%= link_to (user_path(@post.user)) do %>
+					<div class="post-show-side-bar-content">
+						<%= attachment_image_tag @post.user, :profile_image, size: '40x40', class: "post-show-side-bar-image", fallback: "no_image.jpg" %>
+						<div class="post-show-side-bar-name"><%= @post.user.name %></div>
+					</div>
+				<% end %>
+				<div class="post-show-side-bar-content2">
+					<% if @post.user_id == current_user.id %>
+						<div class="post-show-side-bar-title">作品管理</div>
+						<div class="post-show-side-bar-button-box">
+							<%= link_to "編集する", edit_post_path(@post), class: "btn btn-success btn-block" %>
+						</div>
+						<div class="post-show-side-bar-button-box2">
+							<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: 'この投稿を削除しますか？' }, class: "btn btn-warning btn-block" %>
+						</div>
+					<% else %>
+						<%= link_to(user_posts_index_path(@post.user), class: "") do %>
+							<div class="post-show-side-bar-title">最近の作品</div>
+						<% end %>
+						<% @posts.each do |post| %>
+							<%= link_to (post_path(post)) do %>
+								<div class="">
+									<%= attachment_image_tag post, :image, size: '80x80', class: "post-show-side-bar-posts", fallback: "no_image.jpg" %>
+								</div>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

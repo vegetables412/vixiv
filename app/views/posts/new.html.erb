@@ -1,3 +1,4 @@
+
 <%= render 'shared/header' %>
 
 <div class="container-fluid all-height vixiv-background2">
@@ -32,7 +33,9 @@
 					<div class="footer-text">利用規約</div>
 					<div class="footer-text">ガイドライン</div>
 					<div class="footer-text">プライバシーポリシー</div>
+					<%= link_to(new_contact_path, class: "") do %>
 					<div class="footer-text">お問い合わせ</div>
+					<% end %>
 				</div>
 			</div>
 			<div class="footer-underline vixiv-black"></div>
