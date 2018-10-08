@@ -6,7 +6,7 @@
 		<div class="post-show-box">
 			<div class="post-show-main-bar">
 				<div class="post-show-main-bar-image-box">
-					<%= attachment_image_tag @post, :image, size: '900x600', class: "post-show-main-bar-image", fallback: "no_image.jpg" %>
+					<%= attachment_image_tag @post, :image, size: '900x600', class: "post-show-main-bar-image", fallback: "/images/no_image.jpg" %>
 				</div>
 
 				<% if @post.user_id == current_user.id %>
@@ -57,7 +57,7 @@
 						<div class="post-show-main-bar-comment-title">コメント</div>
 					</div>
 					<div class="post-show-main-bar-comment-form">
-						<%= attachment_image_tag current_user, :profile_image, size: '32x32', class: "post-show-main-bar-comment-image", fallback: "no_image.jpg" %>
+						<%= attachment_image_tag current_user, :profile_image, size: '32x32', class: "post-show-main-bar-comment-image", fallback: "/images/no_image.jpg" %>
 						<%= form_for [@post, @comment] do |f| %>
 							<%= f.text_field :comment, class: "comment-form",placeholder: "コメントする..." %>
 							<%= f.submit "送信", class: "btn btn-lg comment-button" %>
@@ -67,7 +67,7 @@
 						 <% @post.comments.order(id: "DESC").each do |comment| %>
 						 	<div class="">
 						 		<div class="post-show-main-bar-comments-image-box">
-						 			<%= attachment_image_tag comment.user, :profile_image, size: '40x40', class: "post-show-main-bar-comments-image", fallback: "no_image.jpg" %>
+						 			<%= attachment_image_tag comment.user, :profile_image, size: '40x40', class: "post-show-main-bar-comments-image", fallback: "/images/no_image.jpg" %>
 						 		</div>
 						 		<div class="post-show-main-bar-comments-box">
 						 			<div class="post-show-main-bar-comments-name"><%= comment.user.name %></div>
@@ -83,7 +83,7 @@
 			<div class="post-show-side-bar">
 				<%= link_to (user_path(@post.user)) do %>
 					<div class="post-show-side-bar-content">
-						<%= attachment_image_tag @post.user, :profile_image, size: '40x40', class: "post-show-side-bar-image", fallback: "no_image.jpg" %>
+						<%= attachment_image_tag @post.user, :profile_image, size: '40x40', class: "post-show-side-bar-image", fallback: "/images/no_image.jpg" %>
 						<div class="post-show-side-bar-name"><%= @post.user.name %></div>
 					</div>
 				<% end %>
@@ -103,7 +103,7 @@
 						<% @posts.each do |post| %>
 							<%= link_to (post_path(post)) do %>
 								<div class="">
-									<%= attachment_image_tag post, :image, size: '80x80', class: "post-show-side-bar-posts", fallback: "no_image.jpg" %>
+									<%= attachment_image_tag post, :image, size: '80x80', class: "post-show-side-bar-posts", fallback: "/images/no_image.jpg" %>
 								</div>
 							<% end %>
 						<% end %>

@@ -6,7 +6,7 @@
 		<div class="user-box">
 			<div class="profile-leftbar">
 				<div class="profile-card">
-					<%= attachment_image_tag @user, :profile_image, :fill, 80,80, class: "user-myicon", fallback: "no_image.jpg" %>
+					<%= attachment_image_tag @user, :profile_image, :fill, 80,80, class: "user-myicon", fallback: "/images/no_image.jpg" %>
 					<div class="user-myname"><%= @user.name %></div>
 				</div>
 				<div class="follow-button">
